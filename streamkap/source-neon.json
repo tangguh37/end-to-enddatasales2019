@@ -1,0 +1,28 @@
+{
+  "name": "neon-sales-source",
+  "type": "source",
+  "connector": "neon",
+  "config": {
+    "host": "${NEON_HOST}",
+    "port": 5432,
+    "database": "${NEON_DATABASE}",
+    "username": "${STREAMKAP_USER}",
+    "password": "${STREAMKAP_PASSWORD}",
+    "schema": "public",
+    "table": "sales",
+    "publication": "streamkap_pub",
+    "publication_auto_create": false,
+    "replica_identity": "DEFAULT",
+    "heartbeats": {
+      "mode": "logical-message"
+    },
+    "snapshot": {
+      "mode": "initial",
+      "select_statement": "SELECT * FROM sales ORDER BY order_id"
+    },
+    "slot": {
+      "name": "streamkap_slot",
+      "drop_on_stop": false
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "motherduck-sales-destination",
+  "type": "destination",
+  "connector": "motherduck",
+  "config": {
+    "motherduck_token": "${MOTHERDUCK_TOKEN}",
+    "database": "sales_analytics",
+    "schema": "streamkap",
+    "ingestion_mode": "upsert",
+    "delete_mode": "none",
+    "schema_evolution": true,
+    "tasks": 1
+  }
+}
